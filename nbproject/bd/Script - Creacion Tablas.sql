@@ -13,7 +13,6 @@ create table detalle_documento (
     cantidad tinyint not null,
     precio numeric(5,2) not null
 );
-
 create table documento (
 	codigo char(12) not null,
     fecha datetime not null,
@@ -25,7 +24,7 @@ create table documento (
 );
 
 create table mesa (
-	numero tinyint not null,
+	numero tinyint not null auto_increment unique,
     asientos tinyint,
-    disponible bit not null default 1
+    disponible bool not null default 1
 );
