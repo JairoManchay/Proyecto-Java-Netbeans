@@ -33,6 +33,4 @@ public class Bill {
         this.documentCode = documentCode;
     }
     
-    
-    
 }
