@@ -4,14 +4,22 @@
  */
 package com.org.restaurante.models.Entity;
 
+import com.org.restaurante.db.DbSingleton;
+import com.org.restaurante.interfaces.CrudInterface;
+import java.sql.*;
+
 /**
  *
  * @author Usuario
  */
-public class TableEntity {
+public class TableEntity implements CrudInterface {
+
     private Integer numero;
     private Integer asientos;
     private Boolean disponible;
+
+    public TableEntity() {
+    }
 
     public Integer getNumero() {
         return numero;
@@ -36,6 +44,28 @@ public class TableEntity {
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
     }
-    
-    
+
+    @Override
+    public void insert() {
+        try (Connection cn = DbSingleton.getConnection(); 
+                CallableStatement st = cn.prepareCall("call sp_registrar_mesa(?)")) {
+            st.setInt(1, asientos);
+
+            st.execute();
+
+            int c = st.getUpdateCount();
+
+            System.out.println(c > 0 ? "Se registro correctamente" : "Error al registrar");
+
+            st.close();
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al registrar -> " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void update() {
+
+    }
 }
