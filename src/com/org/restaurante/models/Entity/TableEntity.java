@@ -1,18 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.org.restaurante.models.Entity;
 
-import com.org.restaurante.db.DbSingleton;
-import com.org.restaurante.interfaces.CrudInterface;
-import java.sql.*;
-
-/**
- *
- * @author Usuario
- */
-public class TableEntity implements CrudInterface {
+public class TableEntity {
 
     private Integer numero;
     private Integer asientos;
@@ -43,29 +31,5 @@ public class TableEntity implements CrudInterface {
 
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
-    }
-
-    @Override
-    public void insert() {
-        try (Connection cn = DbSingleton.getConnection(); 
-                CallableStatement st = cn.prepareCall("call sp_registrar_mesa(?)")) {
-            st.setInt(1, asientos);
-
-            st.execute();
-
-            int c = st.getUpdateCount();
-
-            System.out.println(c > 0 ? "Se registro correctamente" : "Error al registrar");
-
-            st.close();
-            cn.close();
-        } catch (SQLException e) {
-            System.out.println("Error al registrar -> " + e.getMessage());
-        }
-    }
-
-    @Override
-    public void update() {
-
     }
 }

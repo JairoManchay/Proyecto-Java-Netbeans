@@ -6,7 +6,7 @@ begin
 	select
 		*
     from
-		documentos;
+		documento;
 end$$
 
 delimiter ;
