@@ -20,7 +20,8 @@ create procedure sp_registrar_producto
 (
 	in p_descripcion varchar(50),
 	in p_precio numeric(5,2),
-	in p_categoria varchar(30)
+	in p_categoria varchar(30),
+        in p_stock int
 )
 
 begin
@@ -28,8 +29,8 @@ begin
     
     call sp_generar_codigo_producto(p_codigo);
     
-    insert into producto (codigo, descripcion, precio, categoria) 
-    values (p_codigo, p_descripcion, p_precio, p_categoria);
+    insert into producto (codigo, descripcion, precio, categoria, stock) 
+    values (p_codigo, p_descripcion, p_precio, p_categoria, p_stock);
 end$$
 
 delimiter ;

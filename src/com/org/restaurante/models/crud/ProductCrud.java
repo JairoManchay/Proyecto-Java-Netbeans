@@ -15,11 +15,12 @@ public class ProductCrud extends DbConnection {
         CallableStatement st = null;
 
         try {
-            st = cn.prepareCall("call sp_registrar_producto(?,?,?)");
+            st = cn.prepareCall("call sp_registrar_producto(?,?,?,?)");
 
             st.setString(1, prod.getDescripcion());
             st.setDouble(2, prod.getPrecio());
             st.setString(3, prod.getCategoria());
+            st.setInt(4, prod.getStock());
 
             st.execute();
 
@@ -45,12 +46,13 @@ public class ProductCrud extends DbConnection {
         CallableStatement st = null;
 
         try {
-            st = cn.prepareCall("call sp_modificar_producto(?,?,?,?)");
+            st = cn.prepareCall("call sp_modificar_producto(?,?,?,?,?)");
 
             st.setString(1, prod.getCodigo());
             st.setString(2, prod.getDescripcion());
             st.setDouble(3, prod.getPrecio());
             st.setString(4, prod.getCategoria());
+            st.setInt(5, prod.getStock());
 
             st.execute();
 
@@ -87,6 +89,7 @@ public class ProductCrud extends DbConnection {
                 prod.setDescripcion(rs.getString("descripcion"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setCategoria(rs.getString("categoria"));
+                prod.setStock(rs.getInt("stock"));
 
                 lista.add(prod);
             }
@@ -124,6 +127,7 @@ public class ProductCrud extends DbConnection {
                 prod.setDescripcion(rs.getString("descripcion"));
                 prod.setPrecio(rs.getDouble("precio"));
                 prod.setCategoria(rs.getString("categoria"));
+                prod.setStock(rs.getInt("stock"));
             }
         } catch (SQLException e) {
             System.out.println("Error al listar -> " + e.getMessage());

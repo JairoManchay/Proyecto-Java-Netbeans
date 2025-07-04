@@ -4,7 +4,8 @@ create table producto (
 	codigo char(6) not null,
     descripcion varchar(50) not null,
     precio numeric(5,2) not null,
-    categoria varchar(30) not null
+    categoria varchar(30) not null,
+    stock int not null
 );
 
 create table detalle_documento (

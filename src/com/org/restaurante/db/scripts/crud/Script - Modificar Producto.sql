@@ -5,7 +5,8 @@ create procedure sp_modificar_producto
 	in p_codigo char(6),
 	in p_descripcion varchar(50),
 	in p_precio numeric(5,2),
-	in p_categoria varchar(30)
+	in p_categoria varchar(30),
+        in p_stock int
 )
 
 begin
@@ -13,7 +14,8 @@ begin
     set
 		descripcion = p_descripcion,
         precio = p_precio,
-        categoria = p_categoria
+        categoria = p_categoria,
+        stock = p_stock
 	where
 		codigo = p_codigo;
 end$$
