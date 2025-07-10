@@ -4,7 +4,6 @@
  */
 package com.org.restaurante.models.DTO;
 
-import com.org.restaurante.dto.*;
 
 /**
  *
@@ -17,6 +16,12 @@ public class Table {
     private Boolean disponible;
 
     public Table() {
+    }
+    
+    public Table(Integer numero, Integer asientos, Boolean disponible){
+        this.numero = numero;
+        this.asientos = asientos;
+        this.disponible = disponible;
     }
     
     public Integer getNumero() {

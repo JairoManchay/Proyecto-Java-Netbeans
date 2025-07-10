@@ -4,8 +4,6 @@
  */
 package com.org.restaurante.models.DTO;
 
-import com.org.restaurante.dto.*;
-
 /**
  *
  * @author Usuario
@@ -14,7 +12,7 @@ public class Product {
     
     private String code;
     private String description;
-    private Double precio;
+    private Double price;
     private String categoryProduct;
 
     public Product() {
@@ -36,12 +34,12 @@ public class Product {
         this.description = description;
     }
 
-    public Double getPrecio() {
-        return precio;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPrecio(Double precio) {
-        this.precio = precio;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getCategoryProduct() {
