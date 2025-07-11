@@ -13,6 +13,7 @@ public class ProductEntity {
     private String descripcion;
     private Double precio;
     private String categoria;
+    private int stock;
 
     public String getCodigo() {
         return codigo;
@@ -45,6 +46,13 @@ public class ProductEntity {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
     
 }

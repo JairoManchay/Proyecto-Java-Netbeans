@@ -1,0 +1,9 @@
+1. Ejecutar línea
+    create database bd_restaurante;
+
+2. Correr archivo Script - Creacion Tablas
+3. Correr archivo Script - Constraints
+4. Correr archivos
+    - Script - Generar Codigo Producto
+    - Script - Generar Codigo Documento
+5. Ejecutar los demás scripts

@@ -17,7 +17,7 @@ public class DocumentEntity {
     private String num_cliente;
     private String nombre_cliente;
     private String forma_pago;
-    private Integer num_mesa;
+    private int num_mesa;
 
     public String getCodigo() {
         return codigo;
@@ -67,11 +67,11 @@ public class DocumentEntity {
         this.forma_pago = forma_pago;
     }
 
-    public Integer getNum_mesa() {
+    public int getNum_mesa() {
         return num_mesa;
     }
 
-    public void setNum_mesa(Integer num_mesa) {
+    public void setNum_mesa(int num_mesa) {
         this.num_mesa = num_mesa;
     }
     
